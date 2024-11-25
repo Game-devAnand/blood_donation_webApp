@@ -19,10 +19,12 @@ import DonorSideNav from "./donorSideNav";
 export default function Profile({ userId }) {
   const router = useRouter();
   // Use this line
-  const {
-    user: { donorId, email, name },
-    loading,
-  } = useContext(AuthContext);
+  // const {
+  //   user: { donorId, email, name },
+  //   loading,
+  // } = useContext(AuthContext);
+  const { user = {}, loading } = useContext(AuthContext);
+  const { donorId, email, name } = user || {};
 
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -31,6 +33,7 @@ export default function Profile({ userId }) {
   //user name faatch
 
   useEffect(() => {
+    if (loading) return; //edits
     //console.log("Profile page userId:", donorId, name, email); // Use user object properties
     const persistedUserData = localStorage.getItem("userData");
     if (persistedUserData) {

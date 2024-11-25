@@ -19,9 +19,11 @@ function LoginPage() {
   useEffect(() => {
     if (user) {
       // User is already logged in, redirect to profile
-      router.push("/profile");
+      // router.push("/profile");
+      console.log(`user id login ${user.uid}`);
+      router.push(`/profile/${user.id}`);
     }
-  }, [user]);
+  }, [user , router]);
 
   async function fetchDonorName(userId) {
     try {
