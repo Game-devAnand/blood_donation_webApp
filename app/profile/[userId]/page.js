@@ -25,16 +25,6 @@ export default function Profile({ parems }) {
   const { donorId, email, name } = user || {};
   // const { donorId, email, name } = user;
 
-  //original
-  // const {
-  //   user: { donorId, email, name },
-  //   loading,
-  // } = useContext(AuthContext);
-
-  //change 16/7/24
-  // const { user: { donorId, email, name } = {} } = useContext(AuthContext);
-  // const donorId2 = user?.donorId;
-
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
